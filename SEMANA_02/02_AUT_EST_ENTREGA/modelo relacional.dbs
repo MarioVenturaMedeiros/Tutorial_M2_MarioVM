@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="modelo relacional curriculo" id="Project-7b" database="MySql" >
+	<schema name="modelo relacional curriculo" >
+		<table name="curriculo" prior="tbl" >
+			<column name="id" type="INT" jt="4" mandatory="y" />
+			<index name="pk_curriculo" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="expirience" prior="ex" spec="text" >
+			<column name="descricao" type="TEXT" jt="-1" />
+			<fk name="fk_expirience_curriculo" to_schema="modelo relacional curriculo" to_table="curriculo" >
+				<fk_column name="descricao" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="formacao" prior="form" spec="text" >
+			<column name="curso" type="TEXT" jt="-1" />
+			<column name="descricao" type="TEXT" jt="-1" />
+			<column name="formacao" prior="f" type="TEXT" jt="-1" />
+			<column name="data_entrada" type="DATE" jt="91" />
+			<column name="data_conclusao" type="DATE" jt="91" />
+			<fk name="fk_formacao_curriculo" to_schema="modelo relacional curriculo" to_table="curriculo" >
+				<fk_column name="curso" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="foto" prior="tbl" spec="" >
+			<column name="foto" type="TEXT" jt="-1" mandatory="y" />
+			<index name="pk_foto" unique="PRIMARY_KEY" >
+				<column name="foto" />
+			</index>
+			<fk name="fk_foto_curriculo" to_schema="modelo relacional curriculo" to_table="curriculo" >
+				<fk_column name="foto" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="geral" prior="g" >
+			<column name="nome" type="TEXT" jt="-1" mandatory="y" />
+			<column name="cargo" type="TEXT" jt="-1" />
+			<index name="pk_geral" unique="PRIMARY_KEY" >
+				<column name="nome" />
+			</index>
+			<fk name="fk_geral_curriculo" to_schema="modelo relacional curriculo" to_table="curriculo" >
+				<fk_column name="nome" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="habilidades" prior="h" >
+			<column name="ilustrator" prior="ilustrat" type="INT" jt="4" mandatory="y" />
+			<column name="photoshop" prior="p" type="INT" jt="4" mandatory="y" />
+			<column name="corel_draw" type="INT" jt="4" mandatory="y" />
+			<column name="dreamweaver" type="INT" jt="4" mandatory="y" />
+			<column name="html/css3" type="INT" jt="4" mandatory="y" />
+			<fk name="fk_habilidades_curriculo" to_schema="modelo relacional curriculo" to_table="curriculo" >
+				<fk_column name="html/css3" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="personalidade" prior="person" >
+			<column name="descricao" type="TEXT" jt="-1" />
+			<column name="valor" type="INT" jt="4" />
+			<fk name="fk_personalidade_curriculo" to_schema="modelo relacional curriculo" to_table="curriculo" >
+				<fk_column name="valor" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="realizacoes" prior="re" >
+			<column name="titulo" prior="titul" type="TEXT" jt="-1" />
+			<column name="descricao" type="TEXT" jt="-1" />
+			<column name="ano" type="INT" jt="4" />
+			<fk name="fk_realizacoes_curriculo" to_schema="modelo relacional curriculo" to_table="curriculo" >
+				<fk_column name="titulo" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="sobremim" prior="tbl" >
+			<column name="endereco" prior="endereç" type="TEXT" jt="-1" />
+			<column name="numero_celular" type="TEXT" jt="-1" />
+			<column name="e-mail" type="TEXT" jt="-1" mandatory="y" />
+			<column name="descricao" type="TEXT" jt="-1" />
+			<index name="pk_sobremim" unique="PRIMARY_KEY" >
+				<column name="e-mail" />
+			</index>
+			<fk name="fk_sobremim_curriculo" to_schema="modelo relacional curriculo" to_table="curriculo" >
+				<fk_column name="e-mail" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+	</schema>
+	<connector name="MyDb" database="MySql" host="localhost" port="3306" user="root" useSystemProxy="false" />
+	<connector name="MyDb" database="MySql" host="localhost" port="3306" user="root" useSystemProxy="false" />
+	<layout name="Default Layout" id="Layout-17e1" show_relation="columns" >
+		<entity schema="modelo relacional curriculo" name="curriculo" color="C1D8EE" x="368" y="272" />
+		<entity schema="modelo relacional curriculo" name="expirience" color="C1D8EE" x="192" y="176" />
+		<entity schema="modelo relacional curriculo" name="formacao" color="C1D8EE" x="160" y="384" />
+		<entity schema="modelo relacional curriculo" name="foto" color="C1D8EE" x="192" y="544" />
+		<entity schema="modelo relacional curriculo" name="geral" color="C1D8EE" x="160" y="256" />
+		<entity schema="modelo relacional curriculo" name="habilidades" color="C1D8EE" x="576" y="48" />
+		<entity schema="modelo relacional curriculo" name="personalidade" color="C1D8EE" x="528" y="272" />
+		<entity schema="modelo relacional curriculo" name="realizacoes" color="C1D8EE" x="528" y="400" />
+		<entity schema="modelo relacional curriculo" name="sobremim" color="C1D8EE" x="512" y="528" />
+		<callout x="48" y="48" pointer="Round" >
+			<comment><![CDATA[This is a layout - a diagram with tools.
+- Right-click the layout to create new tables. 
+- Double-click table headers to edit. 
+- For a better understanding of the schema, create multiple layouts.
+- The schema will be saved to the model file. 
+- Later, you can connect to any database and deploy the schema into the database.]]></comment>
+		</callout>
+	</layout>
+</project>
