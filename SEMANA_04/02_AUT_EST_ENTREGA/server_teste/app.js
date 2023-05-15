@@ -5,6 +5,7 @@ const app = express();
 const port = 4000;
 const hostname = '127.0.0.1';
 const bodyParser = require('body-parser');
+const urlencodedParser = bodyParser.urlencoded({ extended: false})
 const sqlite3 = require('sqlite3').verbose();
 var DBPATH = './banco_dados.db';
 const db = new sqlite3.Database(DBPATH);
