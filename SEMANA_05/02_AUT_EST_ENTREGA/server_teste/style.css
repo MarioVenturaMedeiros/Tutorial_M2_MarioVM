@@ -1,0 +1,33 @@
+body {
+    font-family: Arial;
+}
+
+#nome {
+    text-align: center;
+    background-color: #0000;
+    color: #3E659B;
+}
+
+#cargo {
+    text-align: center;
+}
+
+#contato {
+    display: block;
+    margin-top: -400px;
+    padding-right: 50px;
+    text-align: right;
+    margin-bottom: -100px;
+}
+
+#info {
+    padding-left: 100px;
+}
+
+#imagem {
+    transform: scale(25%);
+    max-width: 200px;
+    max-height: 200px;
+    margin-top: -150px;
+    margin-bottom: 500px;
+}
